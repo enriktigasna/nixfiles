@@ -29,13 +29,13 @@
         system = "x86_64-linux";
         modules = [
           ./hosts/desktop/configuration.nix
+	  nixvim.homeManagerModules.nixvim
           home-manager.nixosModules.home-manager
           {
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
             home-manager.users.maxim = import ./home;
           }
-	  nixvim.homeManagerModules.nixvim
         ];
       };
     };
