@@ -90,7 +90,6 @@
   nixpkgs.config.allowUnfree = true;
 
   environment.systemPackages = with pkgs; [
-    neovim
     firefox
     home-manager
     vscode-fhs
