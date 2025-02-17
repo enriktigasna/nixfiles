@@ -5,11 +5,11 @@
   ...
 }: {
   imports = [
-	./git.nix
-	./starship.nix
-	./neovim.nix
+    ./git.nix
+    ./starship.nix
+    ./neovim.nix
   ];
-  
+
   home.username = "maxim";
   home.homeDirectory = "/home/maxim";
 
@@ -18,6 +18,10 @@
     vscode-fhs
     git
     gitkraken
+
+    cantarell-fonts
+    nerdfonts
+    xclip
   ];
 
   programs.bash = {
@@ -29,7 +33,7 @@
     '';
 
     shellAliases = {
-    	# TODO Aliases
+      # TODO Aliases
     };
   };
 
