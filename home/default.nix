@@ -7,7 +7,7 @@
   imports = [
     ./git.nix
     ./starship.nix
-    ./neovim.nix
+    ./neovim
   ];
 
   home.username = "maxim";

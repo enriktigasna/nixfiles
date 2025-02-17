@@ -3,6 +3,11 @@
   pkgs,
   ...
 }: {
+  imports = [
+    ./telescope.nix
+    ./keymaps.nix
+  ];
+
   programs.nixvim = {
     enable = true;
     globals.mapleader = " ";
@@ -57,14 +62,9 @@
       oil = {
         enable = true;
       };
-
-      telescope = {
-        enable = true;
-        extensions.fzf-native.enable = true;
-      };
     };
 
-   keymaps = [
+    keymaps = [
       {
         mode = "n";
         key = "<leader>pv";
