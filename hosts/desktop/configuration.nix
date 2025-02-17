@@ -90,12 +90,8 @@
   nixpkgs.config.allowUnfree = true;
 
   environment.systemPackages = with pkgs; [
-    firefox
     home-manager
-    vscode-fhs
-    gitkraken
     zellij
-    git
     alejandra
     direnv
     nil
