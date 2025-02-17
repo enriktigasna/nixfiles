@@ -1,17 +1,22 @@
 # Edit this configuration file to define what should be installed on
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
-
-{ config, pkgs, ... }:
-
 {
-  imports =
-    [ # Include the results of the hardware scan.
-      ./hardware-configuration.nix
-    ];
+  config,
+  pkgs,
+  ...
+}: {
+  imports = [
+    # Include the results of the hardware scan.
+    ./hardware-configuration.nix
+  ];
 
   # Bootloader.
-  boot.loader.systemd-boot.enable = true;
+  boot.loader.timeout = 30;
+  boot.loader.grub.enable = true;
+  boot.loader.grub.device = "nodev";
+  boot.loader.grub.useOSProber = true;
+  boot.loader.grub.efiSupport = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
   networking.hostName = "desktop"; # Define your hostname.
@@ -73,28 +78,29 @@
   users.users.maxim = {
     isNormalUser = true;
     description = "maxim";
-    extraGroups = [ "networkmanager" "wheel" ];
+    extraGroups = ["networkmanager" "wheel"];
     packages = with pkgs; [
-    #  thunderbird
+      #  thunderbird
     ];
   };
 
   # Install firefox.
   programs.firefox.enable = true;
-  
 
   nixpkgs.config.allowUnfree = true;
 
   environment.systemPackages = with pkgs; [
-	neovim
-	firefox
-	home-manager
-	vscode-fhs
-	gitkraken
-	zellij
-	git
+    neovim
+    firefox
+    home-manager
+    vscode-fhs
+    gitkraken
+    zellij
+    git
+    alejandra
+    direnv
+    nil
   ];
 
   system.stateVersion = "24.11";
-
 }
