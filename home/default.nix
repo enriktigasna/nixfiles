@@ -1,8 +1,15 @@
 {
   config,
   pkgs,
+  inputs,
   ...
 }: {
+  imports = [
+	./git.nix
+	./starship.nix
+	./neovim.nix
+  ];
+  
   home.username = "maxim";
   home.homeDirectory = "/home/maxim";
 
@@ -12,12 +19,6 @@
     git
     gitkraken
   ];
-
-  programs = {
-	git = import ./git.nix;
-	starship = import ./starship.nix;
-	nmw = import ./neovim.nix;
-  };
 
   programs.bash = {
     enable = true;

@@ -1,6 +1,9 @@
-{ inputs, pkgs, ... }:
 {
+  inputs,
+  pkgs,
+  ...
+}: {
   imports = [
-    ./neovim.nix
+    #
   ];
 }

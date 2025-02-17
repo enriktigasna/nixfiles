@@ -1,20 +1,18 @@
-{ inputs, pkgs, ... }:
 {
-  imports = [ inputs.mnw.nixosModules.default ];
-
-  programs.mnw = {
+  inputs,
+  pkgs,
+  ...
+}: {
+  programs.nixvim = {
     enable = true;
-
-    neovim = pkgs.neovim-unwrapped;
-    withPython3 = true;
-    viAlias = false;
-    vimAlias = false;
-
+    /*
+    initLua = ''
+      require("myconfig")
+    '';
+    */
     plugins = [
-      # ./nvim
+      #./nvim
       pkgs.vimPlugins.oil-nvim
     ];
-
-
   };
 }

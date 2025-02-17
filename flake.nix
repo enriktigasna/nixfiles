@@ -3,7 +3,12 @@
 
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-24.11";
-    mnw.url = "github:Gerg-L/mnw";
+
+    nixvim = {
+      url = "github:nix-community/nixvim";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     home-manager = {
       url = "github:nix-community/home-manager/release-24.11";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -14,6 +19,7 @@
     self,
     nixpkgs,
     home-manager,
+    nixvim,
     ...
   }: let
     lib = nixpkgs.lib;
@@ -29,6 +35,7 @@
             home-manager.useUserPackages = true;
             home-manager.users.maxim = import ./home;
           }
+	  nixvim.homeManagerModules.nixvim
         ];
       };
     };
