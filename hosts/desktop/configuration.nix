@@ -104,7 +104,7 @@
 
     binutils
     pwndbg
-# gdb
+    # gdb
     patchelf
     libseccomp
     zlib
@@ -118,6 +118,7 @@
         pwntools
         pillow
         sympy
+        autopep8
       ]))
   ];
 

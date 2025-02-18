@@ -1,7 +1,7 @@
 {
   inputs,
-    pkgs,
-    ...
+  pkgs,
+  ...
 }: {
   programs.nixvim = {
     plugins.telescope = {
@@ -135,5 +135,4 @@
       }
     '';
   };
-
 }

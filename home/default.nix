@@ -1,13 +1,13 @@
 {
   config,
-    pkgs,
-    inputs,
-    ...
+  pkgs,
+  inputs,
+  ...
 }: {
   imports = [
     ./git.nix
-      ./starship.nix
-      ./neovim
+    ./starship.nix
+    ./neovim
   ];
 
   home.username = "maxim";
@@ -15,31 +15,31 @@
 
   home.packages = with pkgs; [
     firefox
-      vscode-fhs
-      git
-      gitkraken
+    vscode-fhs
+    git
+    gitkraken
 
-      cantarell-fonts
-      nerdfonts
-      xclip
-      zellij
+    cantarell-fonts
+    nerdfonts
+    xclip
+    zellij
 
-      (pkgs.discord.override {
-       withVencord = true;
-       })
+    (pkgs.discord.override {
+      withVencord = true;
+    })
   ];
 
   programs.bash = {
     enable = true;
     enableCompletion = true;
-# TODO add your custom bashrc here
+    # TODO add your custom bashrc here
     bashrcExtra = ''
       export PATH="$PATH:$HOME/bin:$HOME/.local/bin:$HOME/go/bin"
       export EDITOR=nvim
-      '';
+    '';
 
     shellAliases = {
-# TODO Aliases
+      # TODO Aliases
     };
   };
 
