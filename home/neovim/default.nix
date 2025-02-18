@@ -7,6 +7,7 @@
     ./telescope.nix
     ./keymaps.nix
     ./cmp.nix
+    ./lsp.nix
   ];
 
   programs.nixvim = {

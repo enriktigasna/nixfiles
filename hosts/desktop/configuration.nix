@@ -1,6 +1,6 @@
-# Edit this configuration file to define what should be installed on
-# your system.  Help is available in the configuration.nix(5) man page
-# and in the NixOS manual (accessible by running ‘nixos-help’).
+# Edit this configuration file to define what should be installed on your
+# system.  Help is available in the configuration.nix(5) man page and in the
+# NixOS manual (accessible by running ‘nixos-help’).
 {
   config,
   pkgs,
@@ -65,13 +65,14 @@
   services.pipewire = {
     enable = true;
     alsa.enable = true;
-    alsa.support32Bit = true;
+    alsa.support32Bit =
+      true;
     pulse.enable = true;
     # If you want to use JACK applications, uncomment this
     #jack.enable = true;
 
-    # use the example session manager (no others are packaged yet so this is enabled by default,
-    # no need to redefine it in your config for now)
+    # use the example session manager (no others are packaged yet so this is
+    # enabled by default, no need to redefine it in your config for now)
     #media-session.enable = true;
   };
 
@@ -99,7 +100,25 @@
     alejandra
     direnv
     nil
-    ripgrep
+    ripgrep # Move some stuff from here to home
+
+    binutils
+    pwndbg
+# gdb
+    patchelf
+    libseccomp
+    zlib
+    xxd
+    sage
+
+    (python3.withPackages (python-pkgs:
+      with python-pkgs; [
+        pycrypto
+        requests
+        pwntools
+        pillow
+        sympy
+      ]))
   ];
 
   system.stateVersion = "24.11";
