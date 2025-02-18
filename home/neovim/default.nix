@@ -6,6 +6,7 @@
   imports = [
     ./telescope.nix
     ./keymaps.nix
+    ./cmp.nix
   ];
 
   programs.nixvim = {
@@ -63,14 +64,5 @@
         enable = true;
       };
     };
-
-    keymaps = [
-      {
-        mode = "n";
-        key = "<leader>pv";
-        action = "<cmd>Oil<CR>";
-        options.desc = "Open oil.nvim";
-      }
-    ];
   };
 }

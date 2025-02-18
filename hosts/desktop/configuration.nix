@@ -13,12 +13,15 @@
   ];
 
   # Bootloader.
-  boot.loader.timeout = 30;
-  boot.loader.grub.enable = true;
-  boot.loader.grub.device = "nodev";
-  boot.loader.grub.useOSProber = true;
-  boot.loader.grub.efiSupport = true;
-  boot.loader.efi.canTouchEfiVariables = true;
+  boot.loader = {
+    timeout = 30;
+    grub = {
+      enable = true;
+      efiSupport = true;
+      device = "nodev";
+      useOSProber = true;
+    };
+  };
 
   networking.hostName = "desktop"; # Define your hostname.
   networking.networkmanager.enable = true;
@@ -89,14 +92,14 @@
   programs.firefox.enable = true;
 
   nixpkgs.config.allowUnfree = true;
-  nix.settings.experimental-features = [ "nix-command" "flakes" ];
+  nix.settings.experimental-features = ["nix-command" "flakes"];
 
   environment.systemPackages = with pkgs; [
     home-manager
-    zellij
     alejandra
     direnv
     nil
+    ripgrep
   ];
 
   system.stateVersion = "24.11";
