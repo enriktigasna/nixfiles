@@ -33,7 +33,7 @@
               "alejandra"
             ];
           };
-          format_on_save = { quiet = false; };
+          format_on_save = {quiet = false;};
         };
       };
     };

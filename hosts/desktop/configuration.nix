@@ -103,13 +103,15 @@
     ripgrep # Move some stuff from here to home
 
     binutils
-    pwndbg
-    # gdb
     patchelf
     libseccomp
     zlib
     xxd
     sage
+    pwndbg
+
+    fastfetch
+    cmatrix
 
     (python3.withPackages (python-pkgs:
       with python-pkgs; [
@@ -120,6 +122,10 @@
         sympy
         autopep8
       ]))
+
+    (pkgs.writeShellScriptBin "gdb" ''
+      exec ${pkgs.pwndbg}/bin/pwndbg "$@"
+    '')
   ];
 
   system.stateVersion = "24.11";
