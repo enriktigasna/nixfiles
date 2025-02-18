@@ -113,7 +113,7 @@
 
     (python3.withPackages (python-pkgs:
       with python-pkgs; [
-        pycrypto
+        pycryptodome
         requests
         pwntools
         pillow
