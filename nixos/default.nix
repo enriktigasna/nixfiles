@@ -19,6 +19,7 @@
     pwninit
     gdb
     pwndbg
+    ghidra
 
     fastfetch
     cmatrix
