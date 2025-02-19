@@ -7,6 +7,7 @@
   imports = [
     ./git.nix
     ./starship.nix
+    ./gdb.nix
     ./neovim
   ];
 
@@ -18,11 +19,13 @@
     vscode-fhs
     git
     gitkraken
+    obsidian
 
     cantarell-fonts
     nerdfonts
     xclip
     zellij
+    gdb
 
     (pkgs.discord.override {
       withVencord = true;

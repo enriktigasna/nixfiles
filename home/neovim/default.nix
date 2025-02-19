@@ -57,7 +57,7 @@
       splitbelow = true;
       splitright = true;
     };
-    colorschemes.catppuccin.enable = true;
+    colorschemes.oxocarbon.enable = true;
 
     plugins = {
       lualine.enable = true;

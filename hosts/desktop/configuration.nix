@@ -95,38 +95,5 @@
   nixpkgs.config.allowUnfree = true;
   nix.settings.experimental-features = ["nix-command" "flakes"];
 
-  environment.systemPackages = with pkgs; [
-    home-manager
-    alejandra
-    direnv
-    nil
-    ripgrep # Move some stuff from here to home
-
-    binutils
-    patchelf
-    libseccomp
-    zlib
-    xxd
-    sage
-    pwndbg
-
-    fastfetch
-    cmatrix
-
-    (python3.withPackages (python-pkgs:
-      with python-pkgs; [
-        pycryptodome
-        requests
-        pwntools
-        pillow
-        sympy
-        autopep8
-      ]))
-
-    (pkgs.writeShellScriptBin "gdb" ''
-      exec ${pkgs.pwndbg}/bin/pwndbg "$@"
-    '')
-  ];
-
   system.stateVersion = "24.11";
 }
