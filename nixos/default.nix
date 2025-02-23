@@ -28,6 +28,8 @@
     clang
     cargo
 
+    qemu
+
     (python3.withPackages (python-pkgs:
       with python-pkgs; [
         pycryptodome
@@ -36,6 +38,7 @@
         pillow
         sympy
         autopep8
+        z3-solver
       ]))
   ];
 
