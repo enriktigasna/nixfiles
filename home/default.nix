@@ -27,6 +27,8 @@
     zellij
     gdb
 
+    file
+
     (pkgs.discord.override {
       withVencord = true;
     })
