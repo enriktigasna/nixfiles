@@ -28,6 +28,8 @@
     gdb
 
     file
+    unzip
+    tree
 
     (pkgs.discord.override {
       withVencord = true;

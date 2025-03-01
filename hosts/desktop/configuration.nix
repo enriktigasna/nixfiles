@@ -94,6 +94,8 @@
 
   nixpkgs.config.allowUnfree = true;
   nix.settings.experimental-features = ["nix-command" "flakes"];
+  nixpkgs.config.allowUnsupportedSystem = true;
+  nixpkgs.config.platforms = ["x86_64-linux" "i686-linux"];
 
   system.stateVersion = "24.11";
 }
