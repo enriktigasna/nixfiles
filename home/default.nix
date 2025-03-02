@@ -26,6 +26,7 @@
     xclip
     zellij
     gdb
+    one_gadget
 
     file
     unzip
