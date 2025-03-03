@@ -27,6 +27,7 @@
     gcc
     clang
     cargo
+    gnumake
 
     qemu
     docker
