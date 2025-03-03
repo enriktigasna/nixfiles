@@ -13,6 +13,11 @@
       url = "github:nix-community/home-manager/release-24.11";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    rust-overlay = {
+      url = "github:oxalica/rust-overlay";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = {
@@ -20,6 +25,7 @@
     nixpkgs,
     home-manager,
     nixvim,
+    rust-overlay,
     ...
   }: let
     lib = nixpkgs.lib;
@@ -45,6 +51,10 @@
       laptop = lib.nixosSystem {
         system = "x86_64-linux";
         modules = [
+          ({pkgs, ...}: {
+            nixpkgs.overlays = [rust-overlay.overlays.default];
+            environment.systemPackages = [pkgs.rust-bin.nightly.latest.default];
+          })
           ./hosts/laptop/configuration.nix
           home-manager.nixosModules.home-manager
           {
